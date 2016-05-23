@@ -1,4 +1,4 @@
-package sample.cargotracker.registration.impl;
+package sample.qqq.registration.impl;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.lightbend.lagom.javadsl.immutable.ImmutableStyle;
@@ -15,7 +15,7 @@ import sample.cargotracker.registration.api.Cargo;
  * By convention, the events should be inner classes of the interface, which makes it simple to get a
  * complete picture of what events an entity has.
  */
-public interface RegistrationEvent extends Jsonable , AggregateEvent<RegistrationEvent> {
+public interface DistributionChannelEvent extends Jsonable , AggregateEvent<DistributionChannelEvent> {
 
     /**
      * An event that represents a new cargo registration                                .
@@ -23,11 +23,11 @@ public interface RegistrationEvent extends Jsonable , AggregateEvent<Registratio
     @Immutable
     @ImmutableStyle
     @JsonDeserialize(as = sample.cargotracker.registration.impl.CargoRegistered.class)
-    interface AbstractCargoRegistered extends RegistrationEvent {
+    interface AbstractCargoRegistered extends DistributionChannelEvent {
 
         @Override
-        default public AggregateEventTag<RegistrationEvent> aggregateTag() {
-            return RegistrationEventTag.INSTANCE;
+        default public AggregateEventTag<DistributionChannelEvent> aggregateTag() {
+            return DistributionChannelEventTag.INSTANCE;
         }
 
 

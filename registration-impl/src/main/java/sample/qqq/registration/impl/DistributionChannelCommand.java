@@ -1,4 +1,4 @@
-package sample.cargotracker.registration.impl;
+package sample.qqq.registration.impl;
 
 import akka.Done;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -15,18 +15,18 @@ import sample.cargotracker.registration.api.Cargo;
  * By convention, the commands should be inner classes of the interface, which makes it simple to get a
  * complete picture of what commands an entity supports.
  */
-public interface RegistrationCommand extends Jsonable {
+public interface DistributionChannelCommand extends Jsonable {
 
     /**
      * A command to register cargo.
      * <p>
-     * It has a reply type of {@link akka.Done}, which is sent back to the caller when all the events
+     * It has a reply type of {@link Done}, which is sent back to the caller when all the events
      * emitted by this command are successfully persisted.
      */
     @Value.Immutable
     @ImmutableStyle
     @JsonDeserialize(as = sample.cargotracker.registration.impl.RegisterCargo.class)
-    public interface AbstractRegisterCargo extends RegistrationCommand, CompressedJsonable,
+    public interface AbstractRegisterCargo extends DistributionChannelCommand, CompressedJsonable,
             PersistentEntity.ReplyType<Done> {
 
         @Value.Parameter

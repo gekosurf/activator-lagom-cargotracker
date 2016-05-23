@@ -1,16 +1,15 @@
 package sample.cargotracker.registration.api;
 
-import static com.lightbend.lagom.javadsl.api.Service.*;
-
 import akka.Done;
 import akka.NotUsed;
 import akka.stream.javadsl.Source;
-
 import com.lightbend.lagom.javadsl.api.Descriptor;
 import com.lightbend.lagom.javadsl.api.Service;
 import com.lightbend.lagom.javadsl.api.ServiceCall;
 import com.lightbend.lagom.javadsl.api.transport.Method;
 import org.pcollections.PSequence;
+
+import static com.lightbend.lagom.javadsl.api.Service.*;
 
 /**
  * The registration service interface.
@@ -31,13 +30,13 @@ public interface RegistrationService extends Service {
      * }
      * }' http://localhost:9000/api/registration
      */
-    ServiceCall<NotUsed, Cargo, Done> register();
+    ServiceCall<NotUsed, sample.cargotracker.registration.api.Cargo, Done> register();
 
-    ServiceCall<NotUsed, NotUsed, Source<Cargo, ?>> getLiveRegistrations();
+    ServiceCall<NotUsed, NotUsed, Source<sample.cargotracker.registration.api.Cargo, ?>> getLiveRegistrations();
 
-    ServiceCall<NotUsed, NotUsed, PSequence<Cargo>> getAllRegistrations();
+    ServiceCall<NotUsed, NotUsed, PSequence<sample.cargotracker.registration.api.Cargo>> getAllRegistrations();
 
-    ServiceCall<String, NotUsed, Cargo> getRegistration();
+    ServiceCall<String, NotUsed, sample.cargotracker.registration.api.Cargo> getRegistration();
 
     @Override
     default Descriptor descriptor() {
